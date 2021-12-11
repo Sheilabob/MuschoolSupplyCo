@@ -2,8 +2,16 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import './App.css';
 import Stationery from './components/StationeryComponent';
+import { STATITEMS } from './shared/stationeryitems';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            statItems: STATITEMS
+        };
+    }
+
     render() {
         return (
             <div className="App">
@@ -12,7 +20,7 @@ class App extends Component {
                     <NavbarBrand href="/">Muschool Supply Co.</NavbarBrand>
                 </div>
                 </Navbar>
-                <Stationery />
+                <Stationery statItems={this.state.statItems}/>
             </div>
         );
     }
